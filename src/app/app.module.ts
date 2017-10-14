@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TabMenuModule, DataTableModule } from 'primeng/primeng';
+import {TabMenuModule, DataTableModule, InputTextModule, ButtonModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { PersonListComponent } from './persons/person-list/person-list.component';
@@ -11,6 +11,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonService } from './shared/service/person.service';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    TabMenuModule, DataTableModule
+    FormsModule,
+    TabMenuModule, DataTableModule, InputTextModule, ButtonModule
   ],
   providers: [
     PersonService

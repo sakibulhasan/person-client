@@ -1,4 +1,4 @@
-import {Http, Response} from '@angular/http';
+import {Http, RequestOptions, Response} from '@angular/http';
 import {environment} from '../../../environments/environment';
 import {Person} from '../model/person.model';
 import {Observable} from 'rxjs/Observable';
@@ -17,6 +17,17 @@ export class PersonService {
     const apiUrl = this.serviceHostPath + '/persons';
 
     return this.http.get(apiUrl, null)
+      .map((response: Response) => {
+        const res: Person[] = JSON.parse(JSON.stringify(response.json()));
+        return res;
+    });
+  }
+
+  public findPersons(searchKey: string): Observable<Person[]> {
+    const apiUrl = this.serviceHostPath + '/persons';
+    const options = new RequestOptions({params: {search: searchKey}});
+
+    return this.http.get(apiUrl, options)
       .map((response: Response) => {
         const res: Person[] = JSON.parse(JSON.stringify(response.json()));
         return res;

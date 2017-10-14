@@ -8,8 +8,7 @@ import {Person} from '../../shared/model/person.model';
   styleUrls: ['./person-list.component.css']
 })
 export class PersonListComponent implements OnInit {
-  loading: boolean;
-  persons: Person[];
+  persons: Person[] = [];
 
   constructor(private personService: PersonService) { }
 
@@ -18,7 +17,6 @@ export class PersonListComponent implements OnInit {
   }
 
   private getPersons() {
-    this.loading = true;
     this.personService.getPersons()
       .subscribe(
         (response: Person[]) => {

@@ -1,3 +1,21 @@
-<p>
-  person-search works!
-</p>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <input pInputText style="width: auto" placeholder="Search person" [(ngModel)]="searchKey" />
+        <button pButton type="button" icon="fa-search" class="ui-button-secondary" (click)="searchPerson()"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dataTable *ngIf="show"
+             [value]="persons"
+             [rows]="10"
+             [paginator]="true"
+             [pageLinks]="3"
+             [rowsPerPageOptions]="[5,10,20]">
+  <p-header>Search result of "{{searchKey}}"</p-header>
+  <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
+  <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
+</p-dataTable>

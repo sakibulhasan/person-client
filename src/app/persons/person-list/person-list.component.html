@@ -1,4 +1,5 @@
-<p-dataTable [value]="persons"
+<p-dataTable *ngIf="persons.length"
+             [value]="persons"
              [rows]="10"
              [paginator]="true"
              [pageLinks]="3"

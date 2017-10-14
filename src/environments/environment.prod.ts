@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  envName: 'prod',
+  servicePath: 'https://person-service.herokuapp.com'
 };

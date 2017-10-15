@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   envName: 'dev',
-  servicePath: 'http://localhost:8080'
+  servicePath: 'http://localhost'
 };
